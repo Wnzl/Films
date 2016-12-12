@@ -4,7 +4,9 @@ namespace Films\Http\Controllers\Auth;
 
 use Films\User;
 use Validator;
+use Illuminate\Http\Request;
 use Films\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -28,8 +30,8 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
-
+    protected $redirectTo = 'localhost/catalogue';
+    protected $loginPath = '/';
     /**
      * Create a new authentication controller instance.
      *
@@ -37,7 +39,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
     }
 
     /**
@@ -49,12 +51,29 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'login' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|min:5',
         ]);
     }
 
+    public function postRegister(Request $request)
+    {
+        $validator = $this->validator($request->all());
+        if ($validator->fails()) {
+            return redirect('register')->with('status','Данный email уже используется!');
+        };
+        $this->create($request->all());
+        return redirect('/');
+    }
+
+    public function postLogin(Request $request)
+    {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+            return redirect()->to('catalogue');
+        }
+        return redirect()->to('/')->with('status', 'Вы ввели неверный пароль, либо пользователь еще не создан');
+    }
     /**
      * Create a new user instance after a valid registration.
      *
@@ -64,7 +83,7 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'login' => $data['login'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

@@ -1,3 +1,4 @@
+
 @extends('layout')
 
 @section('title')
@@ -35,7 +36,7 @@
                         </div>
                                 </div>
                             <div class="back" style="overflow: auto">
-                                <?php echo $film->description?>
+                                <b><?php echo $film->description?></b>
                     </div>
                     </div>
                     </div>

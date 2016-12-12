@@ -6,29 +6,33 @@ use Illuminate\Http\Request;
 use DB;
 use Films\Film;
 use Films\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class FilmsController extends Controller
 {
     public function home(){
-        $films = DB::table('films')->get();
+        return view('welcome');
+    }
+
+    public function catalogue(){
+       $films = DB::select('select * from films inner join catalogue on films.id = catalogue.film_id 
+                            where catalogue.user_id = ?',[Auth::user()->id]);
         shuffle($films);
-        return view('welcome',compact('films'));
+        return view('catalogue',compact('films'));
     }
 
     public function actual(){
-        $films = DB::table('films')->where('actual',1)->get();
+        $films = DB::select('select * from films inner join catalogue on films.id = catalogue.film_id
+                             where catalogue.user_id = ? AND catalogue.actual = 1',[Auth::user()->id]);
         shuffle($films);
-        return view('welcome',compact('films'));
+        return view('catalogue',compact('films'));
     }
 
     public function notActual(){
-        $films = DB::table('films')->where('actual',0)->get();
+        $films = DB::select('select * from films inner join catalogue on films.id = catalogue.film_id 
+                             where catalogue.user_id = ? AND catalogue.actual = 0',[Auth::user()->id]);
         shuffle($films);
-        return view('welcome',compact('films'));
+        return view('catalogue',compact('films'));
     }
 
-    public function hdrezka($name){
-        $url = Film::getHdrezka($name);
-        echo $url;
-    }
 }
