@@ -11,9 +11,18 @@
 |
 */
 
-Route::get('/', 'FilmsController@home');
-Route::get('actual', 'FilmsController@actual');
-Route::get('notActual', 'FilmsController@notActual');
-Route::get('hdrezka/{name}', 'FilmsController@hdrezka');
 
+
+Route::group(['middleware' => 'auth'], function () {
+//Route::post('catalogue', 'FilmsController@catalogue');
+    Route::get('catalogue', 'FilmsController@catalogue');
+    Route::get('catalogue/actual', 'FilmsController@actual');
+    Route::get('catalogue/notActual', 'FilmsController@notActual');
+    Route::get('catalogue/hdrezka/{name}', 'FilmsController@hdrezka');
+    Route::get('logout', 'Auth\AuthController@logout');
+});
+Route::post('/','Auth\AuthController@postLogin');
+Route::get('/','Auth\AuthController@getLogin');
+Route::get('register', 'Auth\AuthController@getRegister');
+Route::post('register', 'Auth\AuthController@postRegister');
 

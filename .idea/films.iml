@@ -15,6 +15,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/jakub-onderka/php-console-color" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/jakub-onderka/php-console-highlighter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/jeremeamia/SuperClosure" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/kinoparser/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/kinoparser/src" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/kinoparser/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mockery/mockery" />
@@ -91,6 +94,10 @@
           <root url="file://$MODULE_DIR$/vendor/jakub-onderka/php-console-color" />
           <root url="file://$MODULE_DIR$/vendor/jakub-onderka/php-console-highlighter" />
           <root url="file://$MODULE_DIR$/vendor/jeremeamia/SuperClosure" />
+          <root url="file://$MODULE_DIR$/vendor/kinoparser/.git" />
+          <root url="file://$MODULE_DIR$/vendor/kinoparser/.idea" />
+          <root url="file://$MODULE_DIR$/vendor/kinoparser/src" />
+          <root url="file://$MODULE_DIR$/vendor/kinoparser/vendor" />
           <root url="file://$MODULE_DIR$/vendor/laravel/framework" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
           <root url="file://$MODULE_DIR$/vendor/mockery/mockery" />
@@ -153,6 +160,10 @@
           <root url="file://$MODULE_DIR$/vendor/jakub-onderka/php-console-color" />
           <root url="file://$MODULE_DIR$/vendor/jakub-onderka/php-console-highlighter" />
           <root url="file://$MODULE_DIR$/vendor/jeremeamia/SuperClosure" />
+          <root url="file://$MODULE_DIR$/vendor/kinoparser/.git" />
+          <root url="file://$MODULE_DIR$/vendor/kinoparser/.idea" />
+          <root url="file://$MODULE_DIR$/vendor/kinoparser/src" />
+          <root url="file://$MODULE_DIR$/vendor/kinoparser/vendor" />
           <root url="file://$MODULE_DIR$/vendor/laravel/framework" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
           <root url="file://$MODULE_DIR$/vendor/mockery/mockery" />
@@ -204,6 +215,5 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="films node_modules" level="project" />
   </component>
 </module>
