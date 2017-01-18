@@ -18,7 +18,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('catalogue');
+            return redirect('catalogue')->with('status','Вы авторизированный пользователь!');
         }
 
         return $next($request);

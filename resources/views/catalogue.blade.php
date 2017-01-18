@@ -9,11 +9,23 @@
  <?php   $counter = 1; ?>
 
  <div style="width:1250px; margin:0 auto;">
+     @if (session('status'))
+         <h4 style="color:red;">{{ session('status') }}</h4>
+     @endif
     <table cellpadding="25">
         <tr>
     @foreach($films as $film)
-                <td>
-                    <a class="hdrezka" href="https://www.kinopoisk.ru/film/<?php echo $film->id?>">
+                <td><table>
+                    <tr>
+                    <form method="post"  action="http://localhost/catalogue/change/<?php echo $film->id ?>">
+                    <td><input type="submit" class="del_button" value="Просмотрено"/></td>
+                    </form>
+                    <form method="post"  action="http://localhost/catalogue/delete">
+                    <td><input type="submit"  class="del_button" value="Удалить"/></td>
+                    </form>
+                    </tr>
+                    </table>
+                    <a class="film_card" href="https://www.kinopoisk.ru/film/<?php echo $film->id?>">
                     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                         <div class="flipper">
                             <div class="front">
@@ -32,13 +44,13 @@
                                             echo "<p class=\"p_high\">";
                                         ?>
                                     <b><?php echo $film->rating?>/10</b></p>
-                                    </div>
-                        </div>
+                                </div>
+                             </div>
                                 </div>
                             <div class="back" style="overflow: auto">
                                 <b><?php echo $film->description?></b>
                     </div>
-                    </div>
+                        </div>
                     </div>
                     </a>
                 </td>

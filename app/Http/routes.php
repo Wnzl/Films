@@ -14,10 +14,12 @@
 
 
 Route::group(['middleware' => 'auth'], function () {
-//Route::post('catalogue', 'FilmsController@catalogue');
+    Route::post('catalogue', 'FilmsController@addFilm');
     Route::get('catalogue', 'FilmsController@catalogue');
     Route::get('catalogue/actual', 'FilmsController@actual');
     Route::get('catalogue/notActual', 'FilmsController@notActual');
+    Route::post('catalogue/delete_film',['uses' => 'FilmsController@deleteFilm']);
+    Route::post('catalogue/change/{film_id}', ['uses' => 'FilmsController@actualityChange']);
     Route::get('catalogue/hdrezka/{name}', 'FilmsController@hdrezka');
     Route::get('logout', 'Auth\AuthController@logout');
 });

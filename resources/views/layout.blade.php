@@ -241,6 +241,26 @@
             color:#fff;
         }
 
+        .del_button{
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 13px 28px;
+            text-align: center;
+            width:135px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            cursor:pointer;
+        }
+
+        .del_button:hover {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+
         #overlay {
             width:100%;
             height:100%;
@@ -261,6 +281,24 @@
         function closeWindow(){
             document.getElementById('window').style.display = "none";
         }
+        function deleteFilmClick(film_id){
+                if (confirm("Вы уверены, что хотите удалить фильм из каталога?")){
+                    $.post('http://localhost/delete')
+                }
+        }
+
+        function changeActualityClick(film_id) {
+            if (confirm("Вы уверены?")) {
+                $.ajax({
+                    type: "POST",
+                    url: './catalogue/change',
+                    film_id: film_id
+                            .success(function () {
+                                alert("Изменения успешно внесены!")
+                            })
+                })
+            }
+        }
     </script>
 
 </head>
@@ -276,10 +314,10 @@
     <div class="popup reg_form" style="display:none;" id="window">
         <a onclick="closeWindow()" style="cursor: pointer;">X</a>
         <h2>Введите ID фильма на кинопоиске чтобы добавить</h2>
-        <form method="post" action="">
+        <form method="post" action="http://localhost/catalogue">
             <label for="ID">Введите ID:</label>
-            <input type="text" name="film_id" />
-            <input type="submit" value="Добавить" />
+            <input type="text" name="film_id"/>
+            <input type="submit" value="Добавить"/>
         </form>
     </div>
 

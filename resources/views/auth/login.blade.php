@@ -6,11 +6,23 @@
     <link rel="stylesheet" href="https://d1a3f4spazzrp4.cloudfront.net/login/style-login/style.f9b6ed7902ad25100d2032f04b0189e8.css">
     <link rel="stylesheet" href="https://d1a3f4spazzrp4.cloudfront.net/uber-fonts/2.0.1/superfine.css"/>
 </head>
-<body>
-<div class="content text--center soft--top">
+<body style="background-image: url(http://www.1zoom.net/big2/807/255075-Sepik.jpg);">
+<div class="content text--center soft--top" style="background-color:whitesmoke">
 
     <div class="push-gutter--sides push-small--top">
-        <img src ="http://s1.iconbird.com/ico/2013/11/504/w128h1281385326527video.png">
+        <section class="signup-top" style="height:300px">
+            <div class="signup-top-images">
+                <img src ="http://s1.iconbird.com/ico/2013/11/504/w128h1281385326527video.png">
+            </div>
+            <div class="signup-top-text" style="margin-top:0px">
+                <div class="signup-top-text-subtitle">
+                    <p>Добро пожаловать на сайт посвященный фильмам.</p>
+                    <p>Наш сайт представляет собой твою персональную коллекцию фильмов!</p>
+                    <p>Добавляй понравившиеся фильмы, чтобы не забыть посмотреть их в свободное время.
+                        Добавляй любимые фильмы в свою коллекцию, чтобы пересмотреть их снова!</p>
+                </div>
+            </div>
+        </section>
 
         <div id="login-content">
             <p class="primary-font primary-font--semibold background-line push--top push--bottom">
